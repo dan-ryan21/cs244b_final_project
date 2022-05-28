@@ -8,6 +8,7 @@
 // the account including its id and balance.
 class Account
 {
+
 private:
 	
 	int m_id;
