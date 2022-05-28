@@ -12,6 +12,11 @@ void Deposit::Execute()
 	m_account_A->DebitAccount(m_amount);
 }
 
+void Deposit::Rollback()
+{
+	m_account_A->CreditAccount(m_amount);
+}
+
 void Deposit::Log()
 {
 
@@ -35,7 +40,6 @@ std::string Deposit::ToString()
 	str += deposit_string;
 	str += " to Account ";
 	str += std::to_string(m_account_A->GetId());
-	str += "\n";
 
 	return str;
 }

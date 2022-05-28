@@ -13,6 +13,12 @@ void Transfer::Execute()
 	m_account_B->DebitAccount(m_amount);
 }
 
+void Transfer::Rollback()
+{
+	m_account_A->DebitAccount(m_amount);
+	m_account_B->CreditAccount(m_amount);
+}
+
 void Transfer::Log()
 {
 
@@ -38,7 +44,6 @@ std::string Transfer::ToString()
 	str += std::to_string(m_account_A->GetId());
 	str += " to Account ";
 	str += std::to_string(m_account_B->GetId());
-	str += "\n";
 
 	return str;
 }

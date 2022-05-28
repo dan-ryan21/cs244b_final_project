@@ -12,6 +12,11 @@ void Withdrawal::Execute()
 	m_account_A->CreditAccount(m_amount);
 }
 
+void Withdrawal::Rollback()
+{
+	m_account_A->DebitAccount(m_amount);
+}
+
 void Withdrawal::Log()
 {
 
@@ -35,7 +40,6 @@ std::string Withdrawal::ToString()
 	str += witdrawal_string;
 	str += " from Account ";
 	str += std::to_string(m_account_A->GetId());
-	str += "\n";
 
 	return str;
 }

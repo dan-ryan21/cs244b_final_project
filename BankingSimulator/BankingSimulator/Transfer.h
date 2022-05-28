@@ -18,6 +18,7 @@ public:
 	Transfer(Account *a, Account *b, double amount);
 
 	virtual void Execute();
+	virtual void Rollback();
 	virtual void Log();
 	virtual bool IsValid();
 	virtual std::string ToString();

@@ -13,6 +13,7 @@ public:
 
 	Transaction() {};
 	virtual void Execute() = 0;
+	virtual void Rollback() = 0;
 	virtual void Log() = 0;
 	virtual bool IsValid() = 0;
 	virtual std::string ToString() = 0;

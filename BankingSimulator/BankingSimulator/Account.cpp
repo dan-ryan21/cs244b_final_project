@@ -49,7 +49,6 @@ std::string Account::ToString()
 	str += std::to_string(m_id);
 	str += " has a balance of $";
 	str += balance_string;
-	str += "\n";
 
 	return str;
 }
