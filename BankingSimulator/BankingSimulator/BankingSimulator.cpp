@@ -2,11 +2,12 @@
 //
 
 #include <iostream>
-#include "TestAccount.h"
+#include "BankingSimulatorTests.h"
 
 int main()
 {
-    TestAccount::Execute();
+	BankingSimulatorTests::TestAccount();
+	BankingSimulatorTests::TestTransactions();
 }
 
 

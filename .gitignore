@@ -1,0 +1,13 @@
+# Folders
+
+BankingSimulator/.vs/*
+BankingSimulator/Debug/*
+BankingSimulator/BankingSimulator/Debug/*
+
+# Files
+
+*.sln
+*.htm
+*.filters
+*.user
+*.vcxproj

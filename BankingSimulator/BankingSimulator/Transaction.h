@@ -8,19 +8,11 @@
 class Transaction
 {
 
-protected:
-
-	Account m_account_A;
-	Account m_account_B;
-	double m_amount;
-
 public:
 
-	Transaction();
-
-	virtual void Execute();
-
-	virtual void Log();
+	Transaction() {};
+	virtual void Execute() = 0;
+	virtual void Log() = 0;
 
 };
 

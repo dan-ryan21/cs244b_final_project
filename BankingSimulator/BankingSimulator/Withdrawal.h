@@ -7,9 +7,14 @@
 class Withdrawal : public Transaction
 {
 
+private:
+
+	Account *m_account_A;
+	double m_amount;
+
 public:
 
-	Withdrawal(Account a, double amount);
+	Withdrawal(Account *a, double amount);
 
 	virtual void Execute();
 

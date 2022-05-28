@@ -7,9 +7,14 @@
 class Deposit : public Transaction
 {
 
+private:
+
+	Account *m_account_A;
+	double m_amount;
+
 public:
 
-	Deposit(Account a, double amount);
+	Deposit(Account *a, double amount);
 
 	virtual void Execute();
 
