@@ -3,6 +3,9 @@
 
 #include <string>
 
+// Represents an individual bank account with a current balance.  Balance can be increased (debited)
+// or decreased (credited), and we can report the current balance or return a string description of
+// the account including its id and balance.
 class Account
 {
 private:
@@ -12,10 +15,13 @@ private:
 
 public:
 
+	// Account constructor
 	Account(int id, double opening_balance);
 
+	// Subtract money from the account
 	double CreditAccount(double amount);
 
+	// Add money to the account
 	double DebitAccount(double amount);
 
 	double GetBalance();

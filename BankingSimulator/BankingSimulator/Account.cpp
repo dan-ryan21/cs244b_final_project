@@ -1,7 +1,6 @@
 #include "Account.h"
 #include <sstream>
 
-// Account constructor
 Account::Account(int id, double opening_balance)
 {
 	m_id = id;
