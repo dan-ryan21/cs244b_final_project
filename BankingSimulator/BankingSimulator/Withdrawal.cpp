@@ -35,6 +35,7 @@ std::string Withdrawal::ToString()
 	str += witdrawal_string;
 	str += " from Account ";
 	str += std::to_string(m_account_A->GetId());
+	str += "\n";
 
 	return str;
 }

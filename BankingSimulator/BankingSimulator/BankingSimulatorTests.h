@@ -7,8 +7,8 @@ class BankingSimulatorTests
 public:
 
     static void TestAccount();
-
     static void TestTransactions();
+    static void TestGenerator();
 
 };
 

@@ -4,6 +4,7 @@
 #include "Deposit.h"
 #include "Withdrawal.h"
 #include "Transfer.h"
+#include "TransactionGenerator.h"
 
 void BankingSimulatorTests::TestAccount()
 {
@@ -96,4 +97,37 @@ void BankingSimulatorTests::TestTransactions()
     std::cout << "END Transaction Tests\n";
     std::cout << "---------------------------------------------------\n\n";
 }
+
+void BankingSimulatorTests::TestGenerator()
+{
+    std::cout << "---------------------------------------------------\n";
+    std::cout << "START Generator Tests\n";
+    std::cout << "---------------------------------------------------\n\n";
+
+    std::cout << "Generate 5 accounts\n\n";
+
+    TransactionGenerator tg(5, 100, 5000);
+    tg.Generate();
+
+    std::vector<Account*> accounts = tg.GetAccounts();
+
+    for (Account *a : accounts)
+    {
+        std::cout << a->ToString();
+    }
+
+    std::cout << "\nGenerate 100 transactions\n\n";
+
+    std::vector<Transaction*> transactions = tg.GetTransactions();
+
+    for (Transaction* t : transactions)
+    {
+        std::cout << t->ToString();
+    }
+
+    std::cout << "\n---------------------------------------------------\n";
+    std::cout << "END Generator Tests\n";
+    std::cout << "---------------------------------------------------\n\n";
+}
+
 

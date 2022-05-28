@@ -35,6 +35,7 @@ std::string Deposit::ToString()
 	str += deposit_string;
 	str += " to Account ";
 	str += std::to_string(m_account_A->GetId());
+	str += "\n";
 
 	return str;
 }

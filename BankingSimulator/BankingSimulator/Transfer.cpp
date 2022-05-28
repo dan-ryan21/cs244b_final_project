@@ -38,6 +38,7 @@ std::string Transfer::ToString()
 	str += std::to_string(m_account_A->GetId());
 	str += " to Account ";
 	str += std::to_string(m_account_B->GetId());
+	str += "\n";
 
 	return str;
 }

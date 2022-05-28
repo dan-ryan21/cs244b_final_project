@@ -6,8 +6,9 @@
 
 int main()
 {
-	BankingSimulatorTests::TestAccount();
-	BankingSimulatorTests::TestTransactions();
+	//BankingSimulatorTests::TestAccount();
+	//BankingSimulatorTests::TestTransactions();
+	BankingSimulatorTests::TestGenerator();
 }
 
 
