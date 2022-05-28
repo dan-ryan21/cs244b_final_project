@@ -2,10 +2,11 @@
 //
 
 #include <iostream>
+#include "TestAccount.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    TestAccount::Execute();
 }
 
 
