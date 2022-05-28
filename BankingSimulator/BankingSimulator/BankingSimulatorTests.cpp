@@ -9,7 +9,7 @@ void BankingSimulatorTests::TestAccount()
 {
     std::cout << "---------------------------------------------------\n";
     std::cout << "START Account Tests\n";
-    std::cout << "---------------------------------------------------\n";
+    std::cout << "---------------------------------------------------\n\n";
 
     Account a(1, 1000);
 
@@ -23,43 +23,77 @@ void BankingSimulatorTests::TestAccount()
 
     std::cout << a.ToString();
 
-    std::cout << "---------------------------------------------------\n";
+    std::cout << "\n---------------------------------------------------\n";
     std::cout << "END Account Tests\n";
-    std::cout << "---------------------------------------------------\n";
+    std::cout << "---------------------------------------------------\n\n";
 }
 
 void BankingSimulatorTests::TestTransactions()
 {
     std::cout << "---------------------------------------------------\n";
     std::cout << "START Transaction Tests\n";
-    std::cout << "---------------------------------------------------\n";
+    std::cout << "---------------------------------------------------\n\n";
+
+    std::cout << "Create 2 accounts\n\n";
 
     Account a(1, 1000);
     Account b(2, 1000);
-
     std::cout << a.ToString();
     std::cout << b.ToString();
+
+    std::cout << "\nDeposit $150.25 to Account 1\n\n";
 
     Deposit d(&a, 150.25);
     d.Execute();
-
     std::cout << a.ToString();
     std::cout << b.ToString();
+
+    std::cout << "\nWithdrawal $75.00 from Account 2\n\n";
 
     Withdrawal w(&b, 75);
     w.Execute();
-
     std::cout << a.ToString();
     std::cout << b.ToString();
+
+    std::cout << "\nTransfer $500.00 from Account 1 to Account 2\n\n";
 
     Transfer t(&a, &b, 500);
     t.Execute();
-
     std::cout << a.ToString();
     std::cout << b.ToString();
 
-    std::cout << "---------------------------------------------------\n";
+    std::cout << "\nAll Deposits are Valid\n\n";
+
+    Deposit d2(&a, 1000);
+    std::string valid = d2.IsValid() ? " Is Valid" : " Is Not Valid";
+    std::cout << d2.ToString() << valid;
+
+    std::cout << "\n\nA Valid Withdrawal\n\n";
+
+    Withdrawal w2(&b, 1425);
+    valid = w2.IsValid() ? " Is Valid" : " Is Not Valid";
+    std::cout << w2.ToString() << valid;
+
+    std::cout << "\n\nAn Invalid Withdrawal\n\n";
+
+    Withdrawal w3(&b, 1425.01);
+    valid = w3.IsValid() ? " Is Valid" : " Is Not Valid";
+    std::cout << w3.ToString() << valid;
+
+    std::cout << "\n\nA Valid Transfer\n\n";
+
+    Transfer t2(&a, &b, 650.25);
+    valid = t2.IsValid() ? " Is Valid" : " Is Not Valid";
+    std::cout << t2.ToString() << valid;
+
+    std::cout << "\n\nAn Invalid Transfer\n\n";
+
+    Transfer t3(&a, &b, 650.26);
+    valid = t3.IsValid() ? " Is Valid" : " Is Not Valid";
+    std::cout << t3.ToString() << valid;
+
+    std::cout << "\n\n---------------------------------------------------\n";
     std::cout << "END Transaction Tests\n";
-    std::cout << "---------------------------------------------------\n";
+    std::cout << "---------------------------------------------------\n\n";
 }
 

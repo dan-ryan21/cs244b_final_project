@@ -3,7 +3,7 @@
 
 #include "Transaction.h"
 
-// Concrete Transaction class to transfer money from one account to another
+// Concrete Transaction class to transfer money from one account (A) to another (B)
 class Transfer : public Transaction
 {
 
@@ -18,8 +18,10 @@ public:
 	Transfer(Account *a, Account *b, double amount);
 
 	virtual void Execute();
-
 	virtual void Log();
+	virtual bool IsValid();
+	virtual std::string ToString();
+
 };
 
 #endif // TRANSFER_H

@@ -27,6 +27,8 @@ public:
 
 	double GetBalance();
 
+	int GetId();
+
 	std::string ToString();
 
 };

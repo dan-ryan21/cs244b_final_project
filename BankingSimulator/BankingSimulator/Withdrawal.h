@@ -17,8 +17,10 @@ public:
 	Withdrawal(Account *a, double amount);
 
 	virtual void Execute();
-
 	virtual void Log();
+	virtual bool IsValid();
+	virtual std::string ToString();
+
 };
 
 #endif // WITHDRAWAL_H

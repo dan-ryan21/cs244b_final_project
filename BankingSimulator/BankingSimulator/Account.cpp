@@ -26,6 +26,11 @@ double Account::GetBalance()
 	return m_balance;
 }
 
+int Account::GetId()
+{
+	return m_id;
+}
+
 std::string Account::ToString()
 {
 	std::ostringstream out;
