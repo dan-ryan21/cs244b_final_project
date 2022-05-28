@@ -19,6 +19,9 @@ public:
 	// Account constructor
 	Account(int id, double opening_balance);
 
+	// Copy constructor
+	Account(const Account &a);
+
 	// Subtract money from the account
 	double CreditAccount(double amount);
 

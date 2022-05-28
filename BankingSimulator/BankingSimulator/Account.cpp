@@ -7,6 +7,12 @@ Account::Account(int id, double opening_balance)
 	m_balance = opening_balance;
 }
 
+Account::Account(const Account &a)
+{
+	m_id = a.m_id;
+	m_balance = a.m_balance;
+}
+
 double Account::CreditAccount(double amount)
 {
 	m_balance -= amount;

@@ -108,9 +108,7 @@ void BankingSimulatorTests::TestGenerator()
 
     TransactionGenerator tg(5, 100, 5000);
     tg.Generate();
-
     std::vector<Account*> accounts = tg.GetAccounts();
-
     for (Account *a : accounts)
     {
         std::cout << a->ToString();
@@ -119,10 +117,20 @@ void BankingSimulatorTests::TestGenerator()
     std::cout << "\nGenerate 100 transactions\n\n";
 
     std::vector<Transaction*> transactions = tg.GetTransactions();
-
     for (Transaction* t : transactions)
     {
         std::cout << t->ToString();
+    }
+
+    std::cout << "\nExecute transactions and display results\n\n";
+
+    for (Transaction* t : transactions)
+    {
+        t->Execute();
+    }
+    for (Account* a : accounts)
+    {
+        std::cout << a->ToString();
     }
 
     std::cout << "\n---------------------------------------------------\n";
