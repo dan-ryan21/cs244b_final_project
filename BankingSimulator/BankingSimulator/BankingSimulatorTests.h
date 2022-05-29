@@ -1,6 +1,7 @@
 #ifndef BANKING_SIMULATOR_TESTS_H
 #define BANKING_SIMULATOR_TESTS_H
 
+// Defines all of our unit tests and tests that demonstrate performance
 class BankingSimulatorTests
 {
 

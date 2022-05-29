@@ -4,6 +4,8 @@
 #include <vector>
 #include "Transaction.h"
 
+// Takes a serial array of transactions and applies commutativity rules to generate batches
+// of transactions that can be processed parallel
 class PreProcessor
 {
 
