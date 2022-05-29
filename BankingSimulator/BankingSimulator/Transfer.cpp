@@ -30,6 +30,16 @@ bool Transfer::IsValid()
 	return m_amount <= m_account_A->GetBalance();
 }
 
+bool Transfer::FromAccount(Account* a)
+{
+	return m_account_A == a;
+}
+
+Account* Transfer::GetFromAccount()
+{
+	return m_account_A;
+}
+
 std::string Transfer::ToString()
 {
 	std::ostringstream out;
@@ -46,4 +56,9 @@ std::string Transfer::ToString()
 	str += std::to_string(m_account_B->GetId());
 
 	return str;
+}
+
+std::string Transfer::TransactionType()
+{
+	return TRANSFER_TYPE;
 }

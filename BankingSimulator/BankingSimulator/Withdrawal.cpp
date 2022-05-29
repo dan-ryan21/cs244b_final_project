@@ -28,6 +28,16 @@ bool Withdrawal::IsValid()
 	return m_amount <= m_account_A->GetBalance();
 }
 
+bool Withdrawal::FromAccount(Account* a)
+{
+	return m_account_A == a;
+}
+
+Account* Withdrawal::GetFromAccount()
+{
+	return m_account_A;
+}
+
 std::string Withdrawal::ToString()
 {
 	std::ostringstream out;
@@ -42,4 +52,9 @@ std::string Withdrawal::ToString()
 	str += std::to_string(m_account_A->GetId());
 
 	return str;
+}
+
+std::string Withdrawal::TransactionType()
+{
+	return WITHDRAWAL_TYPE;
 }

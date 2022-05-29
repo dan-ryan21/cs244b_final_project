@@ -4,6 +4,10 @@
 #include "Account.h"
 #include <string>
 
+static std::string WITHDRAWAL_TYPE = "Withdrawal";
+static std::string DEPOSIT_TYPE = "Deposit";
+static std::string TRANSFER_TYPE = "Transfer";
+
 // Abstract class that will define the interface for all Transactions that our banking
 // application will simulate (Deposit, Withdrawal, Transfer Money)
 class Transaction
@@ -16,7 +20,11 @@ public:
 	virtual void Rollback() = 0;
 	virtual void Log() = 0;
 	virtual bool IsValid() = 0;
+	virtual bool FromAccount(Account* a) = 0;
+	virtual Account* GetFromAccount() = 0;
 	virtual std::string ToString() = 0;
+	virtual std::string TransactionType() = 0;
+
 };
 
 #endif // TRANSACTION_H

@@ -20,7 +20,10 @@ public:
 	virtual void Rollback();
 	virtual void Log();
 	virtual bool IsValid();
+	virtual bool FromAccount(Account* a);
+	virtual Account* GetFromAccount();
 	virtual std::string ToString();
+	virtual std::string TransactionType();
 
 };
 

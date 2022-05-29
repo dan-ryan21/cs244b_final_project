@@ -28,6 +28,16 @@ bool Deposit::IsValid()
 	return true;
 }
 
+bool Deposit::FromAccount(Account* a)
+{
+	return false;
+}
+
+Account* Deposit::GetFromAccount()
+{
+	return m_account_A;
+}
+
 std::string Deposit::ToString()
 {
 	std::ostringstream out;
@@ -42,4 +52,9 @@ std::string Deposit::ToString()
 	str += std::to_string(m_account_A->GetId());
 
 	return str;
+}
+
+std::string Deposit::TransactionType()
+{
+	return DEPOSIT_TYPE;
 }

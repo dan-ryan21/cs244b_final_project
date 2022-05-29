@@ -53,7 +53,7 @@ void TransactionGenerator::CreateTransactions()
 		int txn_type = rand() % 3;
 
 		// Select a TXN amount
-		double txn_amount = (rand() % 50000) / 25.00;
+		double txn_amount = (rand() % 50000) / 100.00;
 
 		// Create the TXN.  If its valid, add it to the list of TXNs
 		if (txn_type == 0)
