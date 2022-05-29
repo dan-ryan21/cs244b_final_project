@@ -218,6 +218,12 @@ void BankingSimulatorTests::TestPreProcessor()
         for (Transaction* t : b)
         {
             t->Execute();
+
+            for (Account* a : accounts)
+            {
+                if (a->GetBalance() < 0)
+                    throw std::runtime_error("Negative Account Balance.  Something went wrong.");
+            }
         }
     }
 
