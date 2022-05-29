@@ -5,6 +5,7 @@
 #include "Withdrawal.h"
 #include "Transfer.h"
 #include "TransactionGenerator.h"
+#include "PreProcessor.h"
 
 void BankingSimulatorTests::TestAccount()
 {
@@ -39,47 +40,47 @@ void BankingSimulatorTests::TestTransactions()
 
     Account a(1, 1000);
     Account b(2, 1000);
-    std::cout << a.ToString();
-    std::cout << b.ToString();
+    std::cout << a.ToString() << "\n";
+    std::cout << b.ToString() << "\n";
 
     std::cout << "\nDeposit $150.25 to Account 1\n\n";
 
     Deposit d(&a, 150.25);
     d.Execute();
-    std::cout << a.ToString();
-    std::cout << b.ToString();
+    std::cout << a.ToString() << "\n";
+    std::cout << b.ToString() << "\n";
 
     std::cout << "\nRollback\n\n";
 
     d.Rollback();
-    std::cout << a.ToString();
-    std::cout << b.ToString();
+    std::cout << a.ToString() << "\n";
+    std::cout << b.ToString() << "\n";
 
     std::cout << "\nWithdrawal $75.00 from Account 2\n\n";
 
     Withdrawal w(&b, 75);
     w.Execute();
-    std::cout << a.ToString();
-    std::cout << b.ToString();
+    std::cout << a.ToString() << "\n";
+    std::cout << b.ToString() << "\n";
 
     std::cout << "\nRollback\n\n";
 
     w.Rollback();
-    std::cout << a.ToString();
-    std::cout << b.ToString();
+    std::cout << a.ToString() << "\n";
+    std::cout << b.ToString() << "\n";
 
     std::cout << "\nTransfer $500.00 from Account 1 to Account 2\n\n";
 
     Transfer t(&a, &b, 500);
     t.Execute();
-    std::cout << a.ToString();
-    std::cout << b.ToString();
+    std::cout << a.ToString() << "\n";
+    std::cout << b.ToString() << "\n";
 
     std::cout << "\nRollback\n\n";
 
     t.Rollback();
-    std::cout << a.ToString();
-    std::cout << b.ToString();
+    std::cout << a.ToString() << "\n";
+    std::cout << b.ToString() << "\n";
 
     std::cout << "\nAll Deposits are Valid\n\n";
 
@@ -156,4 +157,77 @@ void BankingSimulatorTests::TestGenerator()
     std::cout << "---------------------------------------------------\n\n";
 }
 
+void BankingSimulatorTests::TestPreProcessor()
+{
+    std::cout << "---------------------------------------------------\n";
+    std::cout << "START PreProcessor Tests\n";
+    std::cout << "---------------------------------------------------\n\n";
+
+    TransactionGenerator tg(10, 100000, 5000);
+    tg.Generate();
+
+    std::vector<Transaction*> serial_transactions = tg.GetTransactions();
+
+    PreProcessor pp(serial_transactions);
+
+    std::vector<std::vector<Transaction*>> batches = pp.CreateBatches();
+
+    int count = 0;
+    int total = 0;
+
+    for (std::vector<Transaction*> b : batches)
+    {
+        count++;
+        total += b.size();
+    }
+
+    std::cout << count << " Batches with average size = " << total / count << " Transactions\n\n";
+
+    std::cout << "Inital Account States\n\n";
+
+    std::vector<Account*> accounts = tg.GetAccounts();
+    for (Account* a : accounts)
+    {
+        std::cout << a->ToString() << "\n";
+    }
+
+    std::cout << "\nAccount States after Serial Processing\n\n";
+
+    for (Transaction* t : serial_transactions)
+    {
+        t->Execute();
+    }
+
+    for (Account* a : accounts)
+    {
+        std::cout << a->ToString() << "\n";
+    }
+
+    // Rollback all of the transactions
+    std::vector<Transaction*>::iterator i = serial_transactions.end();
+    while (i != serial_transactions.begin())
+    {
+        --i;
+        (*i)->Rollback();
+    }
+
+    std::cout << "\nAccount States after Batch Processing\n\n";
+
+    for (std::vector<Transaction*> b : batches)
+    {
+        for (Transaction* t : b)
+        {
+            t->Execute();
+        }
+    }
+
+    for (Account* a : accounts)
+    {
+        std::cout << a->ToString() << "\n";
+    }
+
+    std::cout << "\n---------------------------------------------------\n";
+    std::cout << "END PreProcessor Tests\n";
+    std::cout << "---------------------------------------------------\n\n";
+}
 

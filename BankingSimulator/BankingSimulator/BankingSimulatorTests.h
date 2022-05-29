@@ -9,6 +9,7 @@ public:
     static void TestAccount();
     static void TestTransactions();
     static void TestGenerator();
+    static void TestPreProcessor();
 
 };
 
