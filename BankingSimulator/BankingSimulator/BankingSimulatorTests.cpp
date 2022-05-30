@@ -258,6 +258,16 @@ void BankingSimulatorTests::TestLogger()
 
     std::cout << "Serial Processing took " << elapsed_time_ms << "ms\n";
 
+    int num_of_cores[5] = { 1, 2, 4, 8, 16 };
+
+    for (int n : num_of_cores)
+    {
+        elapsed_time_ms = logger.LogBatches(batches, n);
+
+        std::cout << "Batch Processing with " << n << " cores took " << elapsed_time_ms << "ms\n";
+    }
+   
+
     std::cout << "\n---------------------------------------------------\n";
     std::cout << "END Logger Tests\n";
     std::cout << "---------------------------------------------------\n\n";

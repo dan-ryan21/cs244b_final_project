@@ -11,3 +11,4 @@ BankingSimulator/BankingSimulator/Debug/*
 *.filters
 *.user
 *.vcxproj
+*.txt
