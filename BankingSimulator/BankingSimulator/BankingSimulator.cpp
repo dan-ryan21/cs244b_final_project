@@ -8,11 +8,11 @@
 
 int main()
 {
-	BankingSimulatorTests::TestAccount();
-	BankingSimulatorTests::TestTransactions();
-	BankingSimulatorTests::TestGenerator();
-	BankingSimulatorTests::TestPreProcessor();
-	
+	//BankingSimulatorTests::TestAccount();
+	//BankingSimulatorTests::TestTransactions();
+	//BankingSimulatorTests::TestGenerator();
+	//BankingSimulatorTests::TestPreProcessor();
+	BankingSimulatorTests::TestLogger();	
 }
 
 

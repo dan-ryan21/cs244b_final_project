@@ -6,6 +6,7 @@
 #include "Transfer.h"
 #include "TransactionGenerator.h"
 #include "PreProcessor.h"
+#include "Logger.h"
 
 void BankingSimulatorTests::TestAccount()
 {
@@ -237,3 +238,27 @@ void BankingSimulatorTests::TestPreProcessor()
     std::cout << "---------------------------------------------------\n\n";
 }
 
+void BankingSimulatorTests::TestLogger()
+{
+    std::cout << "---------------------------------------------------\n";
+    std::cout << "START Logger Tests\n";
+    std::cout << "---------------------------------------------------\n\n";
+
+    TransactionGenerator tg(10, 100000, 5000);
+    tg.Generate();
+
+    std::vector<Transaction*> serial_transactions = tg.GetTransactions();
+
+    PreProcessor pp(serial_transactions);
+
+    std::vector<std::vector<Transaction*>> batches = pp.CreateBatches();
+
+    Logger logger;
+    long long elapsed_time_ms = logger.LogSerialTransactions(serial_transactions);
+
+    std::cout << "Serial Processing took " << elapsed_time_ms << "ms\n";
+
+    std::cout << "\n---------------------------------------------------\n";
+    std::cout << "END Logger Tests\n";
+    std::cout << "---------------------------------------------------\n\n";
+}

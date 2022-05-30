@@ -11,6 +11,7 @@ public:
     static void TestTransactions();
     static void TestGenerator();
     static void TestPreProcessor();
+    static void TestLogger();
 
 };
 

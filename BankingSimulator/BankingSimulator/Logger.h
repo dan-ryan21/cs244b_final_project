@@ -10,9 +10,9 @@ class Logger
 
 public:
 
-	Logger() {};
+	Logger();
 	void LogBatches(std::vector<std::vector<Transaction*>>);
-	void LogSerialTransactions(std::vector<Transaction*>);
+	long long LogSerialTransactions(std::vector<Transaction*>);
 
 };
 
