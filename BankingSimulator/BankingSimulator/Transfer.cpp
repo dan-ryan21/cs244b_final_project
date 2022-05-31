@@ -1,5 +1,7 @@
 #include "Transfer.h"
 #include <sstream>
+#include <chrono>
+#include <thread>
 
 Transfer::Transfer(Account *a, Account *b, double amount)
 	: m_account_A(a), m_account_B(b)
@@ -21,7 +23,7 @@ void Transfer::Rollback()
 
 void Transfer::Log()
 {
-
+	std::this_thread::sleep_for(std::chrono::milliseconds(1));
 }
 
 // Can't transfer money from A -> B if A doesn't have enough money

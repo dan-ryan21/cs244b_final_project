@@ -25,15 +25,16 @@ long long Logger::LogSerialTransactions(std::vector<Transaction*> transactions)
 {
     auto t1 = std::chrono::high_resolution_clock::now();
 
-    std::ofstream output_file;
-    output_file.open("serial_processing.txt");
+    //std::ofstream output_file;
+    //output_file.open("serial_processing.txt");
 
     for (Transaction* t : transactions)
     {
-        output_file << t->ToString() << "\n";
+        //output_file << t->ToString() << "\n";
+        t->Log();
     }
 
-    output_file.close();
+    //output_file.close();
 
     auto t2 = std::chrono::high_resolution_clock::now();
 
@@ -59,16 +60,17 @@ void Logger::LogBatchTransactions(std::vector<Transaction*> batch_transactions, 
 
 void Logger::LogTransactionsInParallelThread(std::vector<Transaction*> batch_transactions, int idx, int num_of_cores)
 {
-    std::string filename = "batch_processing_" + std::to_string(idx) + ".txt";
-    std::ofstream output_file;
+    //std::string filename = "batch_processing_" + std::to_string(idx) + ".txt";
+    //std::ofstream output_file;
 
-    output_file.open(filename, std::ios_base::app);
+    //output_file.open(filename, std::ios_base::app);
     
     for (int i = idx; i < batch_transactions.size(); i += num_of_cores)
     {
-        std::string t_string = batch_transactions.at(i)->ToString();
-        output_file << t_string << "\n";
+        //std::string t_string = batch_transactions.at(i)->ToString();
+        //output_file << t_string << "\n";
+        batch_transactions.at(i)->Log();
     }
 
-    output_file.close();
+    /*output_file.close();*/
 }

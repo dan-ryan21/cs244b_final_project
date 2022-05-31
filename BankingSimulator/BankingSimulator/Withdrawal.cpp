@@ -1,5 +1,7 @@
 #include "Withdrawal.h"
 #include <sstream>
+#include <chrono>
+#include <thread>
 
 Withdrawal::Withdrawal(Account *a, double amount)
 	: m_account_A(a)
@@ -19,7 +21,7 @@ void Withdrawal::Rollback()
 
 void Withdrawal::Log()
 {
-
+	std::this_thread::sleep_for(std::chrono::milliseconds(1));
 }
 
 // Can't withrawal more money than is in your account

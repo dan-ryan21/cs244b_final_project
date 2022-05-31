@@ -1,5 +1,7 @@
 #include "Deposit.h"
 #include <sstream>
+#include <chrono>
+#include <thread>
 
 Deposit::Deposit(Account *a, double amount)
 	: m_account_A(a)
@@ -19,7 +21,7 @@ void Deposit::Rollback()
 
 void Deposit::Log()
 {
-
+	std::this_thread::sleep_for(std::chrono::milliseconds(1));
 }
 
 // We can always deposit money
