@@ -21,7 +21,7 @@ void Withdrawal::Rollback()
 
 void Withdrawal::Log()
 {
-	std::this_thread::sleep_for(std::chrono::microseconds(1));
+	std::this_thread::sleep_for(std::chrono::microseconds(5));
 }
 
 // Can't withrawal more money than is in your account
