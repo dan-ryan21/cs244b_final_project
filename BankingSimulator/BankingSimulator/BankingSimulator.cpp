@@ -3,15 +3,13 @@
 
 #include <iostream>
 #include "BankingSimulatorTests.h"
-#include "PreProcessor.h"
-#include "TransactionGenerator.h"
 
 int main()
 {
-	//BankingSimulatorTests::TestAccount();
-	//BankingSimulatorTests::TestTransactions();
-	//BankingSimulatorTests::TestGenerator();
-	//BankingSimulatorTests::TestPreProcessor();
+	BankingSimulatorTests::TestAccount();
+	BankingSimulatorTests::TestTransactions();
+	BankingSimulatorTests::TestGenerator();
+	BankingSimulatorTests::TestPreProcessor();
 	BankingSimulatorTests::TestLogger();	
 }
 
