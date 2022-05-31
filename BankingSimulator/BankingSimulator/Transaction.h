@@ -7,6 +7,7 @@
 static std::string WITHDRAWAL_TYPE = "Withdrawal";
 static std::string DEPOSIT_TYPE = "Deposit";
 static std::string TRANSFER_TYPE = "Transfer";
+static int LOGGING_DELAY_NS = 100;
 
 // Abstract class that will define the interface for all Transactions that our banking
 // application will simulate (Deposit, Withdrawal, Transfer Money)

@@ -21,7 +21,7 @@ void Deposit::Rollback()
 
 void Deposit::Log()
 {
-	std::this_thread::sleep_for(std::chrono::microseconds(5));
+	std::this_thread::sleep_for(std::chrono::microseconds(LOGGING_DELAY_NS));
 }
 
 // We can always deposit money

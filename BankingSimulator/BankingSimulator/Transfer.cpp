@@ -23,7 +23,7 @@ void Transfer::Rollback()
 
 void Transfer::Log()
 {
-	std::this_thread::sleep_for(std::chrono::microseconds(5));
+	std::this_thread::sleep_for(std::chrono::microseconds(LOGGING_DELAY_NS));
 }
 
 // Can't transfer money from A -> B if A doesn't have enough money
