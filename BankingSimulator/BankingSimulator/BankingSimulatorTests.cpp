@@ -258,7 +258,7 @@ void BankingSimulatorTests::TestLogger()
 
     std::cout << "Serial Processing took " << elapsed_time_ms << "ms\n";
 
-    int num_of_cores[5] = { 1, 2, 4, 8, 16 };
+    int num_of_cores[6] = { 1, 2, 4, 8, 16, 32 };
 
     for (int n : num_of_cores)
     {
