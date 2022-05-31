@@ -7,7 +7,7 @@ This project simulates a scalable banking application by providing the capabilit
 * TestPreProcessor() - Tests that our PreProcessor class can properly apply our commutativity rules and split a list of Transactions into batches that can be processed in parallel.  Reports the total number of batches and average batch size.  Verifies that after executing the Transactions serially or in batches, we achieve the same results.
 * TestLogger() - Performance tests the application by simulating database replication.  Compares the performance of serial replication and batch processing with a varying number of cores.
 
-It is intended to run on an Ubuntu Linux platform (developed and tested on Ubuntu 22.04 LTS)
+The application is intended to run on an Ubuntu Linux platform (developed and tested on Ubuntu 22.04 LTS)
 
 To install, compile, and run the application, issue the following commands:
 
