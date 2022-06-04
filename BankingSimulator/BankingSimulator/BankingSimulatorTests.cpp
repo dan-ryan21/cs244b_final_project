@@ -264,7 +264,9 @@ void BankingSimulatorTests::TestLogger()
     {
         elapsed_time_ms = logger.LogBatches(batches, n);
 
-        std::cout << "Batch Processing with " << n << " threads took " << elapsed_time_ms << "ms\n";
+        std::string thread_text = (n == 1) ? " thread" : " threads";
+
+        std::cout << "Batch Processing with " << n << thread_text << " took " << elapsed_time_ms << "ms\n";
     }
    
 
