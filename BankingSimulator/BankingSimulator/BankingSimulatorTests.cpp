@@ -248,7 +248,7 @@ void BankingSimulatorTests::TestPreProcessor()
 void BankingSimulatorTests::TestLogger()
 {
     std::cout << "---------------------------------------------------\n";
-    std::cout << "START Logger Tests\n";
+    std::cout << "START Performance Tests\n";
     std::cout << "---------------------------------------------------\n\n";
 
     TransactionGenerator tg(10, 100000, 5000);
@@ -276,8 +276,7 @@ void BankingSimulatorTests::TestLogger()
         std::cout << "Batch Processing with " << n << thread_text << " took " << elapsed_time_ms << "ms\n";
     }
    
-
     std::cout << "\n---------------------------------------------------\n";
-    std::cout << "END Logger Tests\n";
+    std::cout << "END Performance Tests\n";
     std::cout << "---------------------------------------------------\n\n";
 }
