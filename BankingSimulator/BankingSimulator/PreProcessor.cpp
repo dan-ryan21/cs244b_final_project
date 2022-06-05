@@ -34,8 +34,9 @@ std::vector<std::vector<Transaction*>> PreProcessor::CreateBatches()
 		{
 			Transaction *t2 = (*it);
 
-			if (t2->TransactionType() == DEPOSIT_TYPE || (t2->FromAccount(a) && t2->IsValid()))
-			{// Its either a deposit or a valid TXN from our target account, so add it to this batch
+			if ((t2->TransactionType() == DEPOSIT_TYPE && !t2->ToAccount(a)) || 
+				(t2->FromAccount(a) && t2->IsValid()))
+			{// Its either a deposit to a different account or a valid TXN from our target account, so add it to this batch
 				new_batch.push_back(t2);
 				t2->Execute();
 				it = m_transactions.erase(it);
@@ -46,7 +47,7 @@ std::vector<std::vector<Transaction*>> PreProcessor::CreateBatches()
 				continue;
 			}
 			else
-			{// An invalid TXN, we need to start a new batch
+			{// An invalid TXN or a Deposit to our target account, we need to start a new batch
 				keep_going = false;
 			}
 		}

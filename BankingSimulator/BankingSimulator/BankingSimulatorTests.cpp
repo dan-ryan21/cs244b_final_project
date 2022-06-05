@@ -216,8 +216,15 @@ void BankingSimulatorTests::TestPreProcessor()
 
     for (std::vector<Transaction*> b : batches)
     {
-        for (Transaction* t : b)
+        while (!b.empty())
         {
+            // Get a random TXN from the batch
+            int i = rand() % b.size();
+            std::vector<Transaction*>::iterator it = b.begin() + i;
+
+            Transaction* t = b.at(i);
+            b.erase(it);
+
             t->Execute();
 
             for (Account* a : accounts)

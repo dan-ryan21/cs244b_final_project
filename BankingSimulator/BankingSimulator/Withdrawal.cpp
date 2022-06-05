@@ -35,9 +35,19 @@ bool Withdrawal::FromAccount(Account* a)
 	return m_account_A == a;
 }
 
+bool Withdrawal::ToAccount(Account* a)
+{
+	return false;
+}
+
 Account* Withdrawal::GetFromAccount()
 {
 	return m_account_A;
+}
+
+Account* Withdrawal::GetToAccount()
+{
+	return NULL;
 }
 
 std::string Withdrawal::ToString()

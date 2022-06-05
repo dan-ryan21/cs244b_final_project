@@ -37,9 +37,19 @@ bool Transfer::FromAccount(Account* a)
 	return m_account_A == a;
 }
 
+bool Transfer::ToAccount(Account* a)
+{
+	return m_account_B == a;
+}
+
 Account* Transfer::GetFromAccount()
 {
 	return m_account_A;
+}
+
+Account* Transfer::GetToAccount()
+{
+	return m_account_B;
 }
 
 std::string Transfer::ToString()

@@ -35,7 +35,17 @@ bool Deposit::FromAccount(Account* a)
 	return false;
 }
 
+bool Deposit::ToAccount(Account* a)
+{
+	return m_account_A == a;
+}
+
 Account* Deposit::GetFromAccount()
+{
+	return NULL;
+}
+
+Account* Deposit::GetToAccount()
 {
 	return m_account_A;
 }

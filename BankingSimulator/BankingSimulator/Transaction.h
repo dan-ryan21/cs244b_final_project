@@ -22,7 +22,9 @@ public:
 	virtual void Log() = 0;
 	virtual bool IsValid() = 0;
 	virtual bool FromAccount(Account* a) = 0;
+	virtual bool ToAccount(Account* a) = 0;
 	virtual Account* GetFromAccount() = 0;
+	virtual Account* GetToAccount() = 0;
 	virtual std::string ToString() = 0;
 	virtual std::string TransactionType() = 0;
 
