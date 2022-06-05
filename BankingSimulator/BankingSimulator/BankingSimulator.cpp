@@ -7,7 +7,7 @@
 
 int main(int argc, char* argv[])
 {
-	if (argc == 0) // Run all tests if no arguments given
+	if (argc == 1) // Run all tests if no arguments given
 	{
 		BankingSimulatorTests::TestAccount();
 		BankingSimulatorTests::TestTransactions();
@@ -15,7 +15,7 @@ int main(int argc, char* argv[])
 		BankingSimulatorTests::TestPreProcessor();
 		BankingSimulatorTests::TestLogger();
 	}
-	else if (argc == 1)
+	else if (argc == 2)
 	{
 		int select = std::stoi(argv[1]);
 
